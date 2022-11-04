@@ -12,32 +12,41 @@
 
 
 //Create a timer started by Get started button
+var start = document.querySelector("#start");
+
+
+start.addEventListener("click", function() {
 //timer needs to end game at zero
 
 var timeEl = document.querySelector(".time");
 
-var secondsLeft = 10;
+var secondsLeft = 75;
 
 function setTime() {  
   var timerInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = "Time: " + secondsLeft;
+    timeEl.textContent = secondsLeft;
 
     if(secondsLeft === 0) {
       
-    clearInterval(timerInterval);
+    clearInterval(timerInterval)
+    
       
     sendMessage();
     }
 
-}, 1000);
+}, (1000));
 }
-
-
-
-// }
-
 setTime();
+
+
+
+})
+
+
+
+
+
 
 
 //need a function that loads the first question

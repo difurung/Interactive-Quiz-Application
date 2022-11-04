@@ -11,18 +11,21 @@
     <div class="wrapper">
       <div class="score-time">
         <button>View High Score</button>
-        <p class="time">Time:</p>
+        <p class="time"></p>
       </div>
 
       <!-- Intro Section-->
       <header>
-        <h1>Welcome to the Science and Medicine Quiz!</h1>
-        <div>
-          <p>
-            Try to answer the code realted questions. Right and wrong answers
-            weill be logged. High scores will be recorded and posted. Good luck!
-          </p>
-          <button>Get Startes</button>
+        <div class="text-container">
+          <h1 class="title">Welcome to the Science and Medicine Quiz!</h1>
+            <p class="title-text">
+              Try to answer the code realted questions. Right and wrong answers
+              weill be logged. High scores will be recorded and posted. Good luck!
+            </p>
+          <div class="start-btn"> 
+            <button >Get Startes</button>
+          
+          </div>
         </div>
       </header>
 
@@ -30,23 +33,39 @@
       <section class="card-container">
         <h2 class="question-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus eveniet incidunt commodi ex culpa obcaecati quam autem maxime ducimus sapiente!</h2>
 
-        <ul class="answeer-list"></ul>
+        <ul class="answeer-list">
+          <li>
+            <button></button>
+          </li>
+          <li>
+            <button></button>
+          </li>
+          <li>
+            <button></button>
+          </li>
+          <li>
+            <button></button>
+          </li>
+        </ul>
       </section>
       <footer class="feedback">Correct!</footer>
 
       <!-- This is the done screen-->
-      <section>
+      <section class="done-container">
         <h2>All Done</h2>
         <p>Enter Initials:</p>
         <input class="initials" type="text" />
       </section>
 
       <!-- This is the High Score screen-->
-      <section>
+      <section class="score-container">
         <p>High Scores:</p>
         <button>Go Back</button>
         <button>Clear High Scores</button>
       </section>
     </div>
+
+    <script src="./assets/js/script.js"></script>
+    <script> src="./assets/js/questions.js"></script>
   </body>
 </html>

@@ -9,3 +9,42 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
+
+
+//Create a timer started by Get started button
+//timer needs to end game at zero
+
+var timeEl = document.querySelector(".time");
+
+var secondsLeft = 10;
+
+function setTime() {  
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = "Time: " + secondsLeft;
+
+    if(secondsLeft === 0) {
+      
+    clearInterval(timerInterval);
+      
+    sendMessage();
+    }
+
+}, 1000);
+}
+
+
+
+// }
+
+setTime();
+
+
+//need a function that loads the first question
+
+//need a function that subtracts time on wrong answer
+
+//event listener to go to next question
+
+//upon game ending a score form should appear
+

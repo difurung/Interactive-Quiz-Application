@@ -1,6 +1,45 @@
 *,
 *::before,
 *::after {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
   box-sizing: border-box;
 }
+.score-time {
 
+  display:flex;
+  height: 10vh; 
+  justify-content: space-between;
+  
+  
+}
+
+button {
+
+  height: 8vh;
+  width: 16vw;
+  margin: 3px;
+}
+
+.time{
+
+  height: 8vh;
+  width: 16vw;
+  margin: 3px;
+ padding: 10px 0 0 5px;
+}
+
+header {
+display: flex;
+flex-direction: column;
+
+}
+.card-caontainer {
+
+  display: flex;
+  height: 50vh;
+  width: 60vh;  
+ border: 2px solid black;
+}

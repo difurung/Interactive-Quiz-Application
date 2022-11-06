@@ -10,7 +10,7 @@ var startCon = document.getElementById("#startContainer");
 var startEl = document.querySelector(".startBtn");
 var questionCardEl = document.querySelector(".questionCard");
 var questionTitle = document.getElementById("#question")
-var answerEl = document.getElementById("#answer-choices")
+var answerEl = document.getElementById("#answerChoices")
 var qindex = 0
 var initialsEl = document.querySelector("#initials");
 var scoreEl = document.querySelector("#score");
@@ -145,24 +145,47 @@ var timer = function setTime() {
 
 var questionTitle = document.querySelector("#question");
 
-var listQuestion = function () {
+function listQuestion() {
+    // Clears existing data 
+    questionTitle.innerHTML = "";
+    answerEl.innerHTML = "";
+
+    // For loops to loop through all info in array
+    for (var i = 0; i < questions.length; i++) {
+        // Appends question title only
+        var userQuestion = questions[qindex].title;
+        var userChoices = questions[qindex].choices;
+        questionTitle.textContent = userQuestion;
+    }
+    // New for each for question choices
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionTitle.appendChild(answerEl);
+        answerEl.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
+}
+
+
+// var listQuestion = function () {
   
-  // Add question and respective answer choices text
- questionTitle.textContent = questions[qindex].title;
+//   // Add question and respective answer choices text
+//  questionTitle.textContent = questions[qindex].title;
  
   
-  // Create element for each answer choice and append to answersEl div
-  for (var i = 0; i < 4; i++) {
-    var playerChoice = document.createElement("p");
-    playerChoice.textContent = questions[qindex].choices[i];
-    playerChoice.className = "answer-choice";
-    answerEl.appendChild(playerChoice);
-      console.log(playerChoice)
-  }
+//   // Create element for each answer choice and append to answersEl div
+//   for (var i = 0; i < 4; i++) {
+//     var playerChoice = document.createElement("p");
+//     playerChoice.textContent = questions[qindex].choices[i];
+//     playerChoice.className = "answer-choice";
+//     answerEl.appendChild(playerChoice);
+//       console.log(playerChoice)
+//   }
   
-  // Event listener for clicking on answer choices
-  //answersEl.addEventListener("click", checkAnswer);
-};
+//   // Event listener for clicking on answer choices
+//   //answersEl.addEventListener("click", checkAnswer);
+// };
 
 // var listQuestions = function giveQuestion
 

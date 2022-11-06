@@ -127,11 +127,14 @@ var timer = function setTime() {
     timeEl.textContent = secondsLeft;
     
     if(secondsLeft === 0) {
+
       
-      clearInterval(timerInterval)
+      timeEl.textContent = "";
+      timeEl.textContent = "Done!";
       
+      clearInterval(timerInterval);
       
-      //sendMessage();
+      sendMessage();
     }
     
   }, (1000));
@@ -185,22 +188,26 @@ qindex++
     return;
   };
 }
-  
+
+//work on putting up the done screen.must include final score
+
+
 var sendMessage = function() {
-  questionTitle.remove();
-  questionPageEl.remove();
-  timeEl.textContent = " ";
-  gameOverEl.style.display = "block";
-  score = score + secondsLeft;
-  var messageEl = document.createElement("P");
-  messageEl.innerHTML("Game Over");
-  ;
-  
-  };
+  clearInterval(timerInterval);
+
+  startContainer.style.display = "none"  
+
+  questionCardEl.style.display = "none"
+
+  initialsEl.style.display = "flex"
 
   
-  // };
+  
+  
+};
 
+  
+  
 
 
 startEl.addEventListener("click", letsBegin)

@@ -6,22 +6,22 @@ var currentQuestion = 0
 var score = 0
 
 
-var startCon = document.getElementById("#startContainer");
+var startCon = document.getElementById("startContainer");
 var startEl = document.querySelector(".startBtn");
-var questionCardEl = document.querySelector(".questionCard");
-var questionTitle = document.getElementById("#question")
-var answerEl = document.getElementById("#answerChoices")
+var questionCardEl = document.querySelector("#questionCard");
+var questionTitle = document.getElementById("question")
+var answerEl = document.getElementById("answerChoices")
 var qindex = 0
 var initialsEl = document.querySelector("#initials");
 var scoreEl = document.querySelector("#score");
 
 var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
+var score = 0
 
 
 
 var currentQuestion = 0
-var score = 0
 
 
  
@@ -97,7 +97,7 @@ var score = 0
 
 
 // hide the page
-//questionCardEl.style.display = "none"
+questionCardEl.style.display = "none"
 initialsEl.style.display = "none"
 scoreEl.style.display = "none"
 
@@ -112,7 +112,7 @@ var letsBegin = function () {
   
   startContainer.style.display = "none"
   
-  questionCard.style.display = "flex"
+  questionCardEl.style.display = "block"
   
   //var textContainer = document.querySelector("text-container")
   timer()
@@ -137,12 +137,6 @@ var timer = function setTime() {
   }, (1000));
 };
 
-
-
-//var listQuestions = function giveQuestion
-
-
-
 var questionTitle = document.querySelector("#question");
 
 function listQuestion() {
@@ -163,31 +157,51 @@ function listQuestion() {
         listItem.textContent = newItem;
         questionTitle.appendChild(answerEl);
         answerEl.appendChild(listItem);
-        listItem.addEventListener("click", (compare));
+        listItem.addEventListener("click", compare);
     })
 }
 
+// have to code a way select the answer, make sure its the right one, and then move on
+let compare = function (event) {
 
-// var listQuestion = function () {
-  
-//   // Add question and respective answer choices text
-//  questionTitle.textContent = questions[qindex].title;
- 
-  
-//   // Create element for each answer choice and append to answersEl div
-//   for (var i = 0; i < 4; i++) {
-//     var playerChoice = document.createElement("p");
-//     playerChoice.textContent = questions[qindex].choices[i];
-//     playerChoice.className = "answer-choice";
-//     answerEl.appendChild(playerChoice);
-//       console.log(playerChoice)
-//   }
-  
-//   // Event listener for clicking on answer choices
-//   //answersEl.addEventListener("click", checkAnswer);
-// };
+var theChosen = event.target
+if (theChosen.textContent === questions[qindex].answer) 
+  { score = score + 5;
+  }
+  else {
+    secondsLeft = secondsLeft - 5;
+  }
+qindex++
 
-// var listQuestions = function giveQuestion
+  if (qindex < questions.length) {
+    while (answerEl.firstChild) {
+    questionTitle.textContent = "";
+    answerEl.removeChild(answerEl.firstChild);
+    };
+    
+    listQuestion();
+  } else {
+    sendMessage();
+    return;
+  };
+}
+  
+var sendMessage = function() {
+  questionTitle.remove();
+  questionPageEl.remove();
+  timeEl.textContent = " ";
+  gameOverEl.style.display = "block";
+  score = score + secondsLeft;
+  var messageEl = document.createElement("P");
+  messageEl.innerHTML("Game Over");
+  ;
+  
+  };
+
+  
+  // };
+
+
 
 startEl.addEventListener("click", letsBegin)
 
@@ -195,11 +209,5 @@ startEl.addEventListener("click", letsBegin)
 
 
 
-//need a function that loads the first question
 
-//need a function that subtracts time on wrong answer
-
-//event listener to go to next question
-
-//upon game ending a score form should appear
 

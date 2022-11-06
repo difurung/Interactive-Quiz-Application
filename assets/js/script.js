@@ -1,51 +1,125 @@
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
 
 
 //Create a timer started by Get started button
-var start = document.querySelector("#start");
+//var start = document.querySelector("start");
+var score = 0
 
 
-start.addEventListener("click", function() {
-//timer needs to end game at zero
+var startCon = document.getElementById("#startContainer");
+var startEl = document.querySelector(".startBtn");
+var questionCardEl = document.querySelector("#questionCard");
+var initialsEl = document.querySelector("#initials");
+var scoreEl = document.querySelector("#score");
 
 var timeEl = document.querySelector(".time");
 
 var secondsLeft = 75;
 
-function setTime() {  
-  var timerInterval = setInterval(function() {
+
+
+// hide the page
+questionCardEl.style.display = "none"
+initialsEl.style.display = "none"
+scoreEl.style.display = "none"
+
+
+//start the game. hide start, show questions
+
+
+//timer needs to end game at zero
+//letsBegin(),
+
+var letsBegin = function () {  
+  
+  startContainer.style.display = "none"
+  
+  questionCardEl.style.display = "flex"
+  
+  //var textContainer = document.querySelector("text-container")
+  timer()
+  //listQuestion() 
+};
+
+var timer = function setTime() {  
+  
+  
+  timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
-
+    
     if(secondsLeft === 0) {
       
-    clearInterval(timerInterval)
-    
+      clearInterval(timerInterval)
       
-    sendMessage();
+      
+      sendMessage();
     }
+    
+  }, (1000));
+};
 
-}, (1000));
-}
-setTime();
-
-
-
-})
+startEl.addEventListener("click", letsBegin)
 
 
+// var listQuestions = function giveQuestion
+
+// var questionTitle = questionPageEl.querySelector("#question");
+
+// var listQuestion = function () {
+
+//   questionTitle.textContent = questions[qIndex].question;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var listQuestions = function giveQuestion
+
+
+
+
+// (startEl.addEventListener("click", letsBegin()));
+
+
+// const lastQuestion = questions.length - 1;
+
+// let runningQuestion = 0;
+
+// function renderQuestion(){
+
+//     let q = questions[runningQuestion];
+
+
+
+//     question.innerHTML = "<h2>"+ q.question +"</h2>";
+
+//         choiceA.innerHTML = q.choiceA;
+
+//     choiceB.innerHTML = q.choiceB;
+
+//     choiceC.innerHTML = q.choiceC;
+
+// }
+
+// function renderProgress(){
+
+//     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+
+//         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
+
+//     }
+
+// }
 
 
 

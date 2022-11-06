@@ -16,56 +16,60 @@
 
       <!-- Intro Section-->
       <header>
-        <div class="text-container">
+        <div id="startContainer" class="text-container">
           <h1 class="title">Welcome to the Science and Medicine Quiz!</h1>
           <p class="title-text">
             Try to answer the code realted questions. Right and wrong answers
             weill be logged. High scores will be recorded and posted. Good luck!
           </p>
           <div class="start-btn">
-            <button id="start">Get Started</button>
+            <button class="startBtn">Get Started</button>
           </div>
         </div>
       </header>
 
       <!-- This is the main card-->
 
-      <section class="card-container">
-        <h2 class="question-title">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-          eveniet incidunt commodi ex culpa obcaecati quam autem maxime ducimus
-          sapiente!
+      <section id="questionCard" class="card-container">
+        <h2 class="question-title" id="question">
+          
         </h2>
 
         <ul class="answeer-list">
-          <li>
-            <button></button>
+          <!-- <li>
+            <button class="choice" id="A"></button>
           </li>
           <li>
-            <button></button>
+            <button class="choice" id="B"></button>
           </li>
           <li>
-            <button></button>
+            <button class="choice" id="C"></button>
           </li>
           <li>
-            <button></button>
+            <button class="choice" id="D"></button>
           </li>
-        </ul>
-        <footer class="feedback">Correct!</footer>
+        </ul> -->
+        <footer class="feedback"></footer>
       </section>
 
       <!-- This is the done screen-->
-      <section class="done-container">
+      <section id="initials" class="done-container">
         <h2>All Done</h2>
-        <p>Enter Initials:</p>
-        <input class="initials" type="text" />
+        <h3> Your final score is: <span id="final score"></span></h3>
+
+        <p>
+            <label for="initials"> Enter your Initials</label>
+          <form id= store-initials" action="'"></form>
+          <input class="initials" type="text" /><br>
+          <button id="submit">Submit</button>
+        </p>
       </section>
 
       <!-- This is the High Score screen-->
-      <section class="score-container">
-        <p>High Scores:</p>
+      <section id="score" class="score-container">
+        <h2>High Scores:</h2>
         <div class="end-btn">
-          <button>Go Back</button>
+          <button class="restartBtn">Go Back</button>
           <button>Clear High Scores</button>
         </div>
       </section>

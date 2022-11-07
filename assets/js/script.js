@@ -2,8 +2,6 @@
 
 //Create a timer started by Get started button
 //var start = document.querySelector("start");
-var currentQuestion = 0
-var score = 0
 
 
 var startCon = document.getElementById("startContainer");
@@ -14,13 +12,17 @@ var answerEl = document.getElementById("answerChoices")
 var qindex = 0
 var initialsEl = document.querySelector("#initials");
 var scoreEl = document.querySelector("#score");
-
+var formEl = document.querySelector("form");
 var timeEl = document.querySelector(".time");
-var secondsLeft = 75;
+var inputEl = document.getElementById("enterInitials")
+var scoreEl = document.getElementById("score")
+var submitEl = document.querySelector("#submit");
+var secondsLeft = 60;
+var scoreArr = []
+var scoreboard
+var feedBack = document.getElementById("feedback")
+
 var score = 0
-
-
-
 var currentQuestion = 0
 
 
@@ -97,6 +99,7 @@ var currentQuestion = 0
 
 
 // hide the page
+startCon.style.display = "flex"
 questionCardEl.style.display = "none"
 initialsEl.style.display = "none"
 scoreEl.style.display = "none"
@@ -128,11 +131,11 @@ var timer = function setTime() {
     
     if(secondsLeft === 0) {
 
+      clearInterval(timerInterval);
       
       timeEl.textContent = "";
       timeEl.textContent = "Done!";
       
-      clearInterval(timerInterval);
       
       sendMessage();
     }
@@ -144,8 +147,11 @@ var questionTitle = document.querySelector("#question");
 
 function listQuestion() {
     // Clears existing data 
+
+    //feedBack.textContent = " ";
     questionTitle.innerHTML = "";
-    answerEl.innerHTML = "";
+    answerEl.innerHTML = " ";
+
 
     // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
@@ -170,10 +176,15 @@ let compare = function (event) {
 var theChosen = event.target
 if (theChosen.textContent === questions[qindex].answer) 
   { score = score + 5;
+    //feedBack.innerHTML = "Correct!!";
+    
   }
   else {
     secondsLeft = secondsLeft - 5;
+    //feedBack.innerHTML = "Incorrect!!";
   }
+
+
 qindex++
 
   if (qindex < questions.length) {
@@ -189,6 +200,7 @@ qindex++
   };
 }
 
+
 //work on putting up the done screen.must include final score
 
 
@@ -199,21 +211,78 @@ var sendMessage = function() {
 
   questionCardEl.style.display = "none"
 
-  initialsEl.style.display = "flex"
+  initialsEl.style.display = "block"
+
+  timeEl.textContent = "Done!";
 
   
+    // Display current score
+    var displayScoreEl = initialsEl.querySelector("#finalScore");
+    displayScoreEl.textContent = score;
+
+    return score;
   
   
 };
 
+var submit = function (event) {
+    event.preventDefault(); 
   
+var initialsSave = document.querySelector("#enterInitials").value;
+
+scoreboard = JSON.parse(localStorage.getItem("score")) || [];
+    
+    // Save initial and score pair as an object 
+    var scoreObj = {
+      initial: initialsSave,
+      score: score 
   
+    }
+
+
+    // Stringify array for local storage
+    localStorage.setItem("score", JSON.stringify(scoreObj));
+    
+    
+
+    initialsEl.style.display = "none";
+    scoreEl.style.display = "block";
+    
+    //console.log(scoreArr)
+    //loadScore();
+    
+    console.log(scoreboard);
+    console.log(scoreObj);
+};
+
+//  var loadScore = function () {
+//     if (!savedScoresArr) {
+//         return false;
+//     }
+
+//     var scoreTableBody = scoreboardPageEl.querySelector("#score-table-body");
+//     scoreboard = JSON.parse(localStorage.getItem("score")) || [];
+
+//     //create table row per each saved score object
+//     for (var i = 0; i < scoreboard.length; i++) {
+//         var scoreTableRow = document.createElement("tr");
+//         scoreTableBody.appendChild(scoreTableRow);
+//         var tableDataInitials = document.createElement("td");
+//         var tableDataScore = document.createElement("td");
+//         tableDataInitials.textContent = scoreboard[i].initial;
+//         tableDataScore.textContent = scoreboard[i].score;
+//         scoreTableRow.appendChild(tableDataScore);
+//         scoreTableRow.appendChild(tableDataInitials);
+//     }
+//  };
+
+
 
 
 startEl.addEventListener("click", letsBegin)
 
 
-
+submitEl.addEventListener("click", submit);
 
 
 

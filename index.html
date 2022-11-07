@@ -19,8 +19,8 @@
         <div id="startContainer" class="text-container">
           <h1 class="title">Welcome to the Science and Medicine Quiz!</h1>
           <p class="title-text">
-            Try to answer the code realted questions. Right and wrong answers
-            weill be logged. High scores will be recorded and posted. Good luck!
+            Try to answer the following questions. You have 60 seconds. Right and wrong answers
+            will be logged. Every correct answer will be awarded 5 points. For every wrong answer 5 seconds will be subtracted High scores will be recorded and posted. Good luck!
           </p>
           <div class="start-btn">
             <button class="startBtn">Get Started</button>
@@ -32,23 +32,24 @@
 
       <section id="questionCard" class="card-container">
         <h2 class="question-title" id="question"></h2>
-        <ul id="answerChoices">
+        <ul id="answerChoices" class="answers">
                 
         </ul>
+        <p id="feedback"></p>
 
 
-      <section>
+      </section>
 
       <!-- This is the done screen-->
       <section id="initials" class="done-container">
-        <h2 id="done"></h2>
+        <h2 id="done">Congratulations on Finishing the Quiz!!</h2>
 
-        <h3> Your final score is: <span id="final score"></span></h3>
+        <h3> Your final score is: <span id="finalScore"></span></h3>
 
         <p>
             <label for="initials"> Enter your Initials</label>
           <form id= store-initials" action="'"></form>
-          <input class="initials" type="text" /><br>
+          <input id="enterInitials" type="text" /><br>
           <button id="submit">Submit</button>
         </p>
       </section>
@@ -56,6 +57,7 @@
       <!-- This is the High Score screen-->
       <section id="score" class="score-container">
         <h2>High Scores:</h2>
+        
         <div class="end-btn">
           <button class="restartBtn">Go Back</button>
           <button>Clear High Scores</button>
@@ -67,5 +69,6 @@
     <script>
       src = "./assets/js/questions.js";
     </script>
+    
   </body>
 </html>

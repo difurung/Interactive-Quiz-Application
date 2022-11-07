@@ -230,20 +230,20 @@ var submit = function (event) {
   
 var initialsSave = document.querySelector("#enterInitials").value;
 
-scoreboard = JSON.parse(localStorage.getItem("score")) || [];
-    
-    // Save initial and score pair as an object 
-    var scoreObj = {
-      initial: initialsSave,
-      score: score 
+scoreArr = JSON.parse(localStorage.getItem("score")) || [];
+
+// Save initial and score pair as an object 
+var scoreObj = {
+  initial: initialsSave,
+  score: score 
   
-    }
+}
 
+localStorage.setItem("score", JSON.stringify(scoreObj));
 
-    // Stringify array for local storage
-    localStorage.setItem("score", JSON.stringify(scoreObj));
-    
-    
+//scoreArr.push(scoreObj)
+
+//scoreObj.sort()
 
     initialsEl.style.display = "none";
     scoreEl.style.display = "block";
@@ -251,30 +251,9 @@ scoreboard = JSON.parse(localStorage.getItem("score")) || [];
     //console.log(scoreArr)
     //loadScore();
     
-    console.log(scoreboard);
+    console.log(scoreArr);
     console.log(scoreObj);
 };
-
-//  var loadScore = function () {
-//     if (!savedScoresArr) {
-//         return false;
-//     }
-
-//     var scoreTableBody = scoreboardPageEl.querySelector("#score-table-body");
-//     scoreboard = JSON.parse(localStorage.getItem("score")) || [];
-
-//     //create table row per each saved score object
-//     for (var i = 0; i < scoreboard.length; i++) {
-//         var scoreTableRow = document.createElement("tr");
-//         scoreTableBody.appendChild(scoreTableRow);
-//         var tableDataInitials = document.createElement("td");
-//         var tableDataScore = document.createElement("td");
-//         tableDataInitials.textContent = scoreboard[i].initial;
-//         tableDataScore.textContent = scoreboard[i].score;
-//         scoreTableRow.appendChild(tableDataScore);
-//         scoreTableRow.appendChild(tableDataInitials);
-//     }
-//  };
 
 
 

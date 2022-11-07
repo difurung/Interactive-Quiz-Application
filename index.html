@@ -11,7 +11,7 @@
     <div class="wrapper">
       <div class="score-time">
         <button>View High Score</button>
-        <p>Time:<span class="time"></span></p>
+        <p class="timer">Time:<span class="time"></span></p>
       </div>
 
       <!-- Intro Section-->
@@ -57,10 +57,12 @@
       <!-- This is the High Score screen-->
       <section id="score" class="score-container">
         <h2>High Scores:</h2>
+        <ul id="hScores" class="hscore"></ul>
         
         <div class="end-btn">
           <button class="restartBtn" onClick="window.location.reload
           ()">Go Back</button>
+
           <button>Clear High Scores</button>
         </div>
       </section>

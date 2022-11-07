@@ -17,6 +17,7 @@ var timeEl = document.querySelector(".time");
 var inputEl = document.getElementById("enterInitials")
 var scoreEl = document.getElementById("score")
 var submitEl = document.querySelector("#submit");
+var hScore = document.getElementById("hScores")
 var secondsLeft = 60;
 var scoreArr = []
 var scoreboard
@@ -54,7 +55,7 @@ var currentQuestion = 0
 
   {
     title: 'The term cardiac refers to the:',
-    choices: ['Heart', 'Kidneys', 'Liver', 'pancreas'],
+    choices: ['Heart', 'Kidneys', 'Liver', 'Pancreas'],
     answer: 'Heart',
   },
 
@@ -162,10 +163,11 @@ function listQuestion() {
     }
     // New for each for question choices
     userChoices.forEach(function (newItem) {
-        var listItem = document.createElement("li");
+        var listItem = document.createElement("button");
         listItem.textContent = newItem;
         questionTitle.appendChild(answerEl);
         answerEl.appendChild(listItem);
+
         listItem.addEventListener("click", compare);
     })
 }
@@ -241,7 +243,7 @@ var scoreObj = {
 
 localStorage.setItem("score", JSON.stringify(scoreObj));
 
-//scoreArr.push(scoreObj)
+//scoreArr.push(scoreObj);
 
 //scoreObj.sort()
 
@@ -256,6 +258,9 @@ localStorage.setItem("score", JSON.stringify(scoreObj));
 };
 
 
+
+
+function saveHighscore() {}
 
 
 startEl.addEventListener("click", letsBegin)

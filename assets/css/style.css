@@ -2,6 +2,7 @@
 *::before,
 *::after {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #333;
   margin: 0;
   padding: 0; 
   box-sizing: border-box;
@@ -10,11 +11,14 @@
   display: flex;
   height: 10vh;
   justify-content: space-between;
+  margin-top: 20px;
 }
-.wrapper {
+body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
+  background-color: rgb(149, 183, 212);
 }
 button {
   height: 8vh;
@@ -24,12 +28,19 @@ button {
   border-radius: 10px;
 }
 
-.time {
+button:hover {
+  box-shadow: 5px 5px 8px;
+}
+
+.timer {
   height: 8vh;
   width: 10vw;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: lightgray;
   min-width: 75px;
   margin: 3px;
-  margin-right: 50px;
+  margin-right: 25px;
   padding: 10px 0 0 5px;
 } 
 
@@ -40,20 +51,27 @@ button {
 
 header {
   flex: 0 0 100;
+  background-color: antiquewhite;
 }
+
+
 .text-container,
 .card-container,
 .done-container,
 .score-container {
-  display: flex;
- 
+  display: flex; 
   height: 400px;
   width: 100vw;
-  border: 2px solid black;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   flex: 1;
+}
+
+.card-container,
+.done-container,
+.score-container{
+ background-color: antiquewhite;
 }
 
 .answers {
@@ -66,6 +84,7 @@ header {
  
   width: 100vw;
   border: 2px solid black;
+  
   
 }
 

@@ -229,10 +229,11 @@ var sendMessage = function() {
 
 var submit = function (event) {
     event.preventDefault(); 
-  
+//This stores the initials
 var initialsSave = document.querySelector("#enterInitials").value;
 
-scoreArr = JSON.parse(localStorage.getItem("score")) || [];
+//This is the score array
+var scoreArr = JSON.parse(localStorage.getItem("score")) || [];
 
 // Save initial and score pair as an object 
 var scoreObj = {
@@ -240,10 +241,10 @@ var scoreObj = {
   score: score 
   
 }
+//scoreArr.push(scoreObj);
 
 localStorage.setItem("score", JSON.stringify(scoreObj));
 
-//scoreArr.push(scoreObj);
 
 //scoreObj.sort()
 
@@ -254,13 +255,21 @@ localStorage.setItem("score", JSON.stringify(scoreObj));
     //loadScore();
     
     console.log(scoreArr);
-    console.log(scoreObj);
+    //console.log(scoreObj);
 };
 
 
+function saveHighscore() {
+var scoreArr = JSON.parse(localStorage.getItem("score")) || [];
+
+console 
+var scItem = document.createElement("li");
+        listItem.textContent = scoreArr;
+        hScore.appendChild(scItem);
+        
 
 
-function saveHighscore() {}
+}
 
 
 startEl.addEventListener("click", letsBegin)

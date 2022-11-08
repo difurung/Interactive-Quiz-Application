@@ -47,8 +47,8 @@ var currentQuestion = 0
 
   {
     title: 'What is the gravitational acceleration of earth?',
-    choices: ['9.8 m/s2', '3.72 m/s2', '1.62 m/s2', '8.87 m/s2'],
-    answer: '9.8 m/s2',
+    choices: ['9.8 m/s^2', '3.72 m/s^2', '1.62 m/s^2', '8.87 m/s^2'],
+    answer: '9.8 m/s^2',
   },
 
 
@@ -144,9 +144,9 @@ var timer = function setTime() {
 var questionTitle = document.querySelector("#question");
 
 function listQuestion() {
+  
+  
     // Clears existing data 
-
-    //feedBack.textContent = " ";
     questionTitle.innerHTML = "";
     answerEl.innerHTML = " ";
 

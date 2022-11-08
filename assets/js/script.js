@@ -22,7 +22,7 @@ var secondsLeft = 60;
 var scoreArr = []
 var scoreboard 
 var feedBack = document.getElementById("feedback")
-
+var scoreObj
 var score = 0
 var currentQuestion = 0
 
@@ -243,10 +243,10 @@ var submit = function (event) {
     
     localStorage.setItem("score", JSON.stringify(scoreObj));
     
-    
-    //This is the score array                                    
+     //This is the score array                                    
     var scoreboard = JSON.parse(localStorage.getItem("score", scoreObj)) || [];
     scoreArr.push(scoreboard) //pushes to scoreArr
+    
     
     //scoreObj.sort()
     
@@ -260,15 +260,17 @@ var submit = function (event) {
     //console.log(scoreObj);
     
     
-
+  saveHighscore()
 
       
     };
     
+    var scoreArr
     
     function saveHighscore() {
 
-  var scoreArr
+  
+
 
       for(var i = 0; i < scoreArr.length; i += 1 ) {
       var liTag = document.createElement('li');

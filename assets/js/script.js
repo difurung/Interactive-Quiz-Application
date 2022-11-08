@@ -25,7 +25,7 @@ var feedBack = document.getElementById("feedback")
 var scoreObj
 var score = 0
 var currentQuestion = 0
-
+var scoreboard = JSON.parse(localStorage.getItem("score") || []);
 
  // Ouestions arraay
   var questions = [
@@ -239,13 +239,14 @@ var submit = function (event) {
       score: score 
       
     }
-    
-    
-    localStorage.setItem("score", JSON.stringify(scoreObj));
+    scoreArr.push(scoreObj)
+
+    localStorage.setItem("score", JSON.stringify(scoreArr));
+        //localStorage.setItem("score", JSON.stringify(scoreObj));
     
      //This is the score array                                    
-    var scoreboard = JSON.parse(localStorage.getItem("score", scoreObj)) || [];
-    scoreArr.push(scoreboard) //pushes to scoreArr
+          //var scoreboard = JSON.parse(localStorage.getItem("score", scoreObj)) || [];
+          //scoreArr.push(scoreboard) //pushes to scoreArr
     
     
     //scoreObj.sort()
@@ -253,10 +254,10 @@ var submit = function (event) {
     initialsEl.style.display = "none";
     scoreEl.style.display = "block";
     
-    //console.log(scoreArr)
+    console.log(scoreArr)
     //loadScore();
     
-    console.log(score);
+    console.log(scoreboard);
     //console.log(scoreObj);
     
     
@@ -265,17 +266,17 @@ var submit = function (event) {
       
     };
     
-    var scoreArr
     
     function saveHighscore() {
-
+      
+      //var scoreArr
   
 
 
-      for(var i = 0; i < scoreArr.length; i += 1 ) {
+      for(var i = 0; i < scoreboard.length; i += 1 ) {
       var liTag = document.createElement('li');
-      liTag.textContent = scoreArr[i].initial + ' - ' + scoreArr[i].score;    
-      var hScores = document.initial.getElementById("hScores");
+      liTag.textContent = scoreboard[i].initial + ' - ' + scoreboard[i].score;    
+      var hScores = document.getElementById("hScores");
       hScores.appendChild(liTag)}
 
       console.log(hScores)

@@ -4,7 +4,7 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: #333;
   margin: 0;
-  padding: 0; 
+  padding: 0;
   box-sizing: border-box;
 }
 .score-time {
@@ -36,7 +36,7 @@ button:hover {
 
 .timer {
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   height: fit-content;
   width: fit-content;
   border: 2px solid black;
@@ -46,7 +46,7 @@ button:hover {
   margin: 3px;
   margin-right: 25px;
   padding: 10px 5px 10px 5px;
-} 
+}
 
 /* .start-btn,
 .end-btn {
@@ -58,12 +58,11 @@ header {
   background-color: antiquewhite;
 }
 
-
 .text-container,
 .card-container,
 .done-container,
 .score-container {
-  display: flex; 
+  display: flex;
   height: 400px;
   width: 100vw;
   padding: 10vw;
@@ -76,22 +75,20 @@ header {
 
 .card-container,
 .done-container,
-.score-container{
- background-color: antiquewhite;
+.score-container {
+  background-color: antiquewhite;
 }
 
 .answers {
-  
   list-style: none;
- 
-  
 }
 .answers li {
- 
   width: 100vw;
   border: 2px solid black;
-  
-  
+}
+
+.hscore {
+  list-style: none;
 }
 
 .feedback {

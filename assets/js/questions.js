@@ -1,7 +1,9 @@
-//  var currentQuestion = 0
-//  var score = 0
+// var score = 0
+// var currentQuestion = 0
+
+
  
-//   var questions = [
+// var questions = [
 //   {
 //     title: 'Biology is the study of:',
 //     choices: ['Life', 'Tectonics', 'Chemicals', 'Nuclear Reactions'],
@@ -28,7 +30,7 @@
 
 //   {
 //     title: 'The term cardiac refers to the:',
-//     choices: ['Heart', 'Kidneys', 'Liver', 'pancreas'],
+//     choices: ['Heart', 'Kidneys', 'Liver', 'Pancreas'],
 //     answer: 'Heart',
 //   },
 
@@ -64,7 +66,7 @@
 //     answer: 'Hippocrates',
 //   },
 
-// ]
+// ];
 
 
 // will learn a library called inquirer (npm package)

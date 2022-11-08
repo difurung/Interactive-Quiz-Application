@@ -20,14 +20,14 @@ var submitEl = document.querySelector("#submit");
 var hScore = document.getElementById("hScores")
 var secondsLeft = 60;
 var scoreArr = []
-var scoreboard
+var scoreboard 
 var feedBack = document.getElementById("feedback")
 
 var score = 0
 var currentQuestion = 0
 
 
- 
+ // Ouestions arraay
   var questions = [
   {
     title: 'Biology is the study of:',
@@ -92,9 +92,6 @@ var currentQuestion = 0
   },
 
 ];
-
-
-// will learn a library called inquirer (npm package)
     
 
 
@@ -118,7 +115,7 @@ var letsBegin = function () {
   
   questionCardEl.style.display = "block"
   
-  //var textContainer = document.querySelector("text-container")
+  
   timer()
   listQuestion() 
 };
@@ -229,54 +226,69 @@ var sendMessage = function() {
 
 var submit = function (event) {
     event.preventDefault(); 
-//This stores the initials
-var initialsSave = document.querySelector("#enterInitials").value;
 
-//This is the score array
-var scoreArr = JSON.parse(localStorage.getItem("score")) || [];
-
-// Save initial and score pair as an object 
-var scoreObj = {
-  initial: initialsSave,
-  score: score 
-  
-}
-//scoreArr.push(scoreObj);
-
-localStorage.setItem("score", JSON.stringify(scoreObj));
-
-
-//scoreObj.sort()
-
+    
+    //This stores the initials
+    var initialsSave = document.querySelector("#enterInitials").value;
+    
+    
+    
+    // Save initial and score pair as an object 
+    var scoreObj = {
+      initial: initialsSave,
+      score: score 
+      
+    }
+    
+    
+    localStorage.setItem("score", JSON.stringify(scoreObj));
+    
+    
+    //This is the score array                                    
+    var scoreboard = JSON.parse(localStorage.getItem("score", scoreObj)) || [];
+    scoreArr.push(scoreboard) //pushes to scoreArr
+    
+    //scoreObj.sort()
+    
     initialsEl.style.display = "none";
     scoreEl.style.display = "block";
     
     //console.log(scoreArr)
     //loadScore();
     
-    console.log(scoreArr);
+    console.log(score);
     //console.log(scoreObj);
-};
+    
+    
 
 
-function saveHighscore() {
-var scoreArr = JSON.parse(localStorage.getItem("score")) || [];
+      
+    };
+    
+    
+    function saveHighscore() {
 
-console 
-var scItem = document.createElement("li");
-        listItem.textContent = scoreArr;
-        hScore.appendChild(scItem);
-        
+  var scoreArr
 
+      for(var i = 0; i < scoreArr.length; i += 1 ) {
+      var liTag = document.createElement('li');
+      liTag.textContent = scoreArr[i].initial + ' - ' + scoreArr[i].score;    
+      var hScores = document.initial.getElementById("hScores");
+      hScores.appendChild(liTag)}
 
-}
-
-
-startEl.addEventListener("click", letsBegin)
-
-
-submitEl.addEventListener("click", submit);
-
-
-
-
+      console.log(hScores)
+      
+      
+      
+    
+    }
+    
+    
+    startEl.addEventListener("click", letsBegin)
+    
+    
+    submitEl.addEventListener("click", submit);
+    
+    
+    
+    

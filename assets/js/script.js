@@ -17,9 +17,11 @@ var timeEl = document.querySelector(".time");
 var inputEl = document.getElementById("enterInitials")
 var scoreEl = document.getElementById("score")
 var submitEl = document.querySelector("#submit");
+  var clearEl = document.querySelector(".clear");
+  var scTableEl = document.querySelector(".view");
+var viewEl = document.querySelector("#view");
 var hScore = document.getElementById("hScores")
 var secondsLeft = 60;
- 
 var feedBack = document.getElementById("feedback")
 var scoreObj
 var score = 0
@@ -93,6 +95,16 @@ var scoreArr = []
 ];
     
 
+var scTable = function ()  {
+
+    initialsEl.style.display = "none";
+    scoreEl.style.display = "flex";
+    startCon.style.display = "none"
+    questionCardEl.style.display = "none"
+    initialsEl.style.display = "none"
+    
+
+    } 
 
 
 // hide the page
@@ -100,6 +112,7 @@ startCon.style.display = "flex"
 questionCardEl.style.display = "none"
 initialsEl.style.display = "none"
 scoreEl.style.display = "none"
+
 
 
 //start the game. hide start, show questions
@@ -282,19 +295,38 @@ var submit = function (event) {
       for(var i = 0; i < scoreboard.length; i += 1 ) {
       var liTag = document.createElement('li');
       liTag.textContent = scoreboard[i].initial + ' - ' + scoreboard[i].score;    
-      hScores.appendChild(liTag)}
-
-      
-      
-      
+      hScores.appendChild(liTag)}    
+            
     
     }
     
+    var clear = function ()  {
+
+    localStorage.clear();
+    hScores.textContent = ''; 
     
+    } 
+   
+   
+    
+   
+   
+    // function clear() {
+
+
+    // } 
+
+
     startEl.addEventListener("click", letsBegin)
     
     
     submitEl.addEventListener("click", submit);
+
+    
+    clearEl.addEventListener("click", clear);
+
+
+    scTableEl.addEventListener("click", scTable);
     
     
     
